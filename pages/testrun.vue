@@ -27,7 +27,7 @@
 <script setup>
 const { data: product } = await useFetch("https://fakestoreapi.com/products");
 const products = product._rawValue;
-// console.log(products);
+console.log(products);
 </script>
 
 <style lang="scss" scoped></style>

@@ -27,7 +27,9 @@
 </template>
 
 <script setup>
-const { data: product } = await useFetch("https://fakestoreapi.com/products");
+const { data: product } = await useFetch(
+  "https://fakestoreapi.com/products?limit=5"
+);
 const products = product._rawValue;
 console.log(products);
 </script>

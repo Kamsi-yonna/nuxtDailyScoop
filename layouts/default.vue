@@ -20,7 +20,7 @@
           <NuxtLink to="/selectedNews">Entertainment</NuxtLink>
         </li>
         <li class="block border-x px-8 py-3 hover:bg-gray-50 hover:text-black">
-          <NuxtLink to="/selectedNews">SearchIcon</NuxtLink>
+          <NuxtLink to="/testrun">SearchIcon</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -48,6 +48,6 @@
 
 <style scoped>
 .router-link-exact-active {
-  color: #fff;
+  color: #db001b;
 }
 </style>

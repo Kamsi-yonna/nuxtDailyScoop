@@ -1,23 +1,25 @@
 <template>
-  <div class="flex-shrink max-w-full w-full lg:w-1/2 pr-2">
+  <v-card
+    v-for="(product, i) in products"
+    :key="i"
+    class="flex-shrink max-w-full w-full lg:w-1/2 pr-2"
+  >
     <div class="relative hover-img max-h-96 overflow-hidden">
       <a href="#">
-        <img
+        <v-img
           class="max-w-full w-full mx-auto h-full"
-          src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+          :src="product.image"
           alt="Image description"
         />
       </a>
       <div class="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
         <a href="#">
           <h2 class="text-3xl font-bold capitalize text-white mb-3">
-            Amazon Shoppers Are Ditching Designer Belts for This Best-Selling
+            {{ product.title }}
           </h2>
         </a>
         <p class="text-gray-100 hidden sm:inline-block">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This very helpfull for generate default
-          content..
+          {{ product.category }}
         </p>
         <div class="pt-2">
           <div class="text-gray-100">
@@ -27,11 +29,15 @@
         </div>
       </div>
     </div>
-  </div>
+  </v-card>
 </template>
 
-<script>
-export default {};
+<script setup>
+const { data: product } = await useFetch(
+  "https://fakestoreapi.com/products?limit=1"
+);
+const products = product._rawValue;
+console.log(products);
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

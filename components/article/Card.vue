@@ -18,17 +18,10 @@
             </v-card-subtitle>
 
             <v-card-actions>
-              <v-btn
-                color="orange-lighten-2"
-                class="btn elevation-0"
-                variant="text"
-                @click="show = !show"
-              >
-                Read More...
-              </v-btn>
+              <button class="btn">Read More...</button>
             </v-card-actions>
 
-            <v-expand-transition>
+            <!-- <v-expand-transition>
               <div v-show="show">
                 <v-divider></v-divider>
 
@@ -36,7 +29,7 @@
                   {{ product.description }}
                 </v-card-text>
               </div>
-            </v-expand-transition>
+            </v-expand-transition> -->
           </div>
         </div>
       </v-card>

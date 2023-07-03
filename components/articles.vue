@@ -29,44 +29,9 @@
               <div class="p-4 rounded-l bg-gray-300">
                 <h2 class="text-lg font-bold">Most Popular</h2>
               </div>
-              <ul class="post-number">
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a
-                    class="text-lg font-bold px-6 py-3 flex flex-row items-center"
-                    href="#"
-                    >Why the world would end without political polls</a
-                  >
-                </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a
-                    class="text-lg font-bold px-6 py-3 flex flex-row items-center"
-                    href="#"
-                    >Meet The Man Who Designed The Ducati Monster</a
-                  >
-                </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a
-                    class="text-lg font-bold px-6 py-3 flex flex-row items-center"
-                    href="#"
-                    >2020 Audi R8 Spyder spy shots release</a
-                  >
-                </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a
-                    class="text-lg font-bold px-6 py-3 flex flex-row items-center"
-                    href="#"
-                    >Lamborghini makes Huracán GT3 racer faster for 2019</a
-                  >
-                </li>
-                <li class="border-b border-gray-100 hover:bg-gray-50">
-                  <a
-                    class="text-lg font-bold px-6 py-3 flex flex-row items-center"
-                    href="#"
-                    >ZF plans $14 billion autonomous vehicle push, concept
-                    van</a
-                  >
-                </li>
-              </ul>
+
+              <!-- NEWS LIST  -->
+              <articleSideBar />
             </div>
           </div>
 

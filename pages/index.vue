@@ -2,7 +2,7 @@
   <!-- HERO SECTION  -->
   <hero />
   <!-- ARTICLE -->
-  <articles />
+  <!-- <articles /> -->
 </template>
 
 <script setup></script>

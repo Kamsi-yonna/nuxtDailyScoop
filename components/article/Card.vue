@@ -1,3 +1,4 @@
+<!-- ARTICLE CARD -->
 <template>
   <v-row md="2" class="p-4">
     <v-col v-for="(product, i) in products" :key="i" lg="4">
@@ -20,16 +21,6 @@
             <v-card-actions>
               <button class="btn">Read More...</button>
             </v-card-actions>
-
-            <!-- <v-expand-transition>
-              <div v-show="show">
-                <v-divider></v-divider>
-
-                <v-card-text>
-                  {{ product.description }}
-                </v-card-text>
-              </div>
-            </v-expand-transition> -->
           </div>
         </div>
       </v-card>

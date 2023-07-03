@@ -1,36 +1,33 @@
 <!-- HERO CARD  -->
 <template>
-  <v-row md="2" class="p-4">
-    <v-col v-for="(product, i) in products" :key="i" lg="4">
-      <v-card class="flex border-4 sm:border-b-0 border-black w-96">
-        <div class="relative hover-img max-h-48 overflow-hidden">
-          <v-img
-            height="180"
-            class="w-full-width p-2"
-            :src="product.image"
-            alt="alt title"
-            cover
-          />
-          <div
-            class="absolute px-4 pt-7 pb-4 bottom-0 w-full bg-gradient-cover"
+  <v-card
+    v-for="(product, i) in products"
+    :key="i"
+    class="flex-shrink max-w-full w-full sm:w-1/2"
+  >
+    <div class="relative hover-img max-h-48 p-2 overflow-hidden">
+      <v-img
+        class="max-w-full w-full mx-auto h-auto"
+        :src="product.image"
+        alt="Image description"
+      />
+      <div class="absolute px-4 pt-7 pb-4 bottom-0 w-full bg-gradient-cover">
+        <a href="#">
+          <h2
+            class="text-lg font-bold capitalize leading-tight text-white mb-1"
           >
-            <v-card-title>{{ product.title }}</v-card-title>
-
-            <div class="pt-1">
-              <div class="text-gray-100">
-                <div
-                  class="inline-block h-3 border-l-2 border-red-600 mr-2"
-                ></div>
-                <v-card-subtitle>
-                  {{ product.id }}
-                </v-card-subtitle>
-              </div>
-            </div>
+            {{ product.title }}
+          </h2>
+        </a>
+        <div class="pt-1">
+          <div class="text-gray-100">
+            <div class="inline-block h-3 border-l-2 border-red-600 mr-2"></div>
+            {{ product.category }}
           </div>
         </div>
-      </v-card>
-    </v-col>
-  </v-row>
+      </div>
+    </div>
+  </v-card>
 </template>
 
 <script setup>

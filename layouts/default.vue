@@ -8,7 +8,7 @@
         <li
           class="block border-x-2 border-black px-8 py-3 hover:bg-gray-50 hover:text-black"
         >
-          <NuxtLink to="/selectedNews">Sport</NuxtLink>
+          <NuxtLink to="/selected">Sport</NuxtLink>
         </li>
         <li class="block border-x px-8 py-3 hover:bg-gray-50 hover:text-black">
           <NuxtLink to="/selectedNews">Travel</NuxtLink>

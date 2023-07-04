@@ -1,3 +1,4 @@
+<!-- HERO BANNER  -->
 <template>
   <v-card
     v-for="(product, i) in products"

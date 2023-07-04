@@ -3,12 +3,10 @@
     <div class="xl:container">
       <!-- hero -->
       <div class="flex flex-row flex-wrap">
-        <!--BANNER -->
+        <!--HEROBANNER -->
         <heroBanner />
 
-        <!--right boxes-->
-
-        <!-- <heroCard /> -->
+        <!-- HEROCARD-->
         <div class="flex-shrink max-w-full w-full lg:w-1/2">
           <div class="box-one flex flex-row flex-wrap">
             <heroCard />

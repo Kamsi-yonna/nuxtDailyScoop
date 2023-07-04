@@ -1,7 +1,5 @@
 <template>
-  <!-- HERO SECTION  -->
   <hero />
-  <!-- ARTICLE -->
   <articles />
 </template>
 

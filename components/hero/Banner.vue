@@ -14,11 +14,14 @@
         />
       </a>
       <div class="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
-        <a href="#">
-          <h2 class="text-3xl font-bold capitalize text-white mb-3">
-            {{ product.title }}
-          </h2>
-        </a>
+        <nuxt-link :to="`/selected/${product.id}`">
+          <a href="#">
+            <h2 class="text-3xl font-bold capitalize text-white mb-3">
+              {{ product.title }}
+            </h2>
+          </a>
+        </nuxt-link>
+
         <p class="text-gray-100 hidden sm:inline-block">
           {{ product.category }}
         </p>

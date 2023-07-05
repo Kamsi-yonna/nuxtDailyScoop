@@ -12,13 +12,14 @@
         alt="Image description"
       />
       <div class="absolute px-4 pt-7 pb-4 bottom-0 w-full bg-gradient-cover">
-        <a href="#">
+        <nuxt-link :to="`/selected/${product.id}`">
           <h2
             class="text-lg font-bold capitalize leading-tight text-white mb-1"
           >
             {{ product.title }}
           </h2>
-        </a>
+        </nuxt-link>
+
         <div class="pt-1">
           <div class="text-gray-100">
             <div class="inline-block h-3 border-l-2 border-red-600 mr-2"></div>

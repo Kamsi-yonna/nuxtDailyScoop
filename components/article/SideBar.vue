@@ -5,9 +5,11 @@
       :key="i"
       class="flex border-b border-gray-100 hover:bg-gray-50 p-2"
     >
-      <v-card-title>
-        <span class="counter"></span>{{ product.title }}
-      </v-card-title>
+      <nuxt-link :to="`/selected/${product.id}`">
+        <v-card-title>
+          <span class="counter"></span>{{ product.title }}
+        </v-card-title>
+      </nuxt-link>
     </li>
   </ul>
 </template>

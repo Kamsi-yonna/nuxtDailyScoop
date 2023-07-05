@@ -12,15 +12,19 @@
             cover
           />
           <div class="py-0 sm:py-1 pl-3 sm:pl-0">
-            <v-card-title>{{ product.title }}</v-card-title>
+            <nuxt-link :to="`/selected/${product.id}`">
+              <v-card-title>{{ product.title }}</v-card-title>
+            </nuxt-link>
 
             <v-card-subtitle>
               {{ product.description }}
             </v-card-subtitle>
 
-            <v-card-actions>
-              <button class="btn">Read More...</button>
-            </v-card-actions>
+            <nuxt-link :to="`/selected/${product.id}`">
+              <v-card-actions :to="`/selected/${product.id}`">
+                <button class="btn">Read More...</button>
+              </v-card-actions>
+            </nuxt-link>
           </div>
         </div>
       </v-card>

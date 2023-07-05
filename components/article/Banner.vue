@@ -15,7 +15,9 @@
             class="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover"
           >
             <!--title-->
-            <v-card-title>{{ product.title }}</v-card-title>
+            <nuxt-link :to="`/selected/${product.id}`">
+              <v-card-title>{{ product.title }}</v-card-title>
+            </nuxt-link>
             <v-card-subtitle>
               {{ product.description }}
             </v-card-subtitle>
@@ -34,11 +36,12 @@
 </template>
 
 <script setup>
-const { data: product } = await useFetch(
-  "https://fakestoreapi.com/products?limit=1"
-);
-const products = product._rawValue;
-console.log(products);
+const { product } = defineProps(["product"]);
+// const { data: product } = await useFetch(
+//   "https://fakestoreapi.com/products?limit=1"
+// );
+// const products = product._rawValue;
+// console.log(products);
 </script>
 
 <style scoped>

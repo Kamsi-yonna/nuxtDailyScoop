@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-4 gap-3">
     <div v-for="p in product">
-      <nuxt-link :to="`/selected/${p.id}`">{{ p.title }}</nuxt-link>
+      <productCard :product="p" />
     </div>
   </div>
   <div class="container mx-auto flex flex-wrap py-6">

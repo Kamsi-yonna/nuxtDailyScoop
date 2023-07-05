@@ -1,5 +1,5 @@
 <template>
-  <productDetails :product="product" />
+  <selectedContent :product="product" />
 </template>
 
 <script setup>

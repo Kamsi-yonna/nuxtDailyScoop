@@ -36,11 +36,11 @@
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
-// const { data: product } = await useFetch(
-//   "https://fakestoreapi.com/products?limit=1"
-// );
-// const products = product._rawValue;
+// const { product } = defineProps(["product"]);
+const { data: product } = await useFetch(
+  "https://fakestoreapi.com/products?limit=1"
+);
+const products = product._rawValue;
 // console.log(products);
 </script>
 

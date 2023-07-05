@@ -36,7 +36,7 @@ const { data: product } = await useFetch(
   "https://fakestoreapi.com/products?limit=4"
 );
 const products = product._rawValue;
-console.log(products);
+// console.log(products);
 </script>
 
 <style scoped></style>

@@ -1,13 +1,13 @@
 <template>
   <ul class="post-number">
     <li
-      v-for="(product, i) in products"
+      v-for="(article, i) in articles"
       :key="i"
       class="flex border-b border-gray-100 hover:bg-gray-50 p-2"
     >
-      <nuxt-link :to="`/selected/${product.id}`">
+      <nuxt-link :to="`/selected/${article.id}`">
         <v-card-title>
-          <span class="counter"></span>{{ product.title }}
+          <span class="counter"></span>{{ article.title }}
         </v-card-title>
       </nuxt-link>
     </li>
@@ -15,11 +15,42 @@
 </template>
 
 <script setup>
-const { data: product } = await useFetch(
-  "https://fakestoreapi.com/products?limit=5"
-);
-const products = product._rawValue;
-// console.log(products);
+const apiKey = "099148be22804e849a0c6fe022b7cf5e";
+const url = "https://newsapi.org/v2/everything";
+const query = "top stories";
+const maxArticles = 6;
+
+const articles = ref([]);
+
+onMounted(async () => {
+  const response = await fetch(`${url}?q=${query}&apiKey=${apiKey}`);
+  const data = await response.json();
+  console.log(data);
+
+  const articleCount = data.articles.length;
+  const randomIndices = getRandomIndices(articleCount, maxArticles);
+
+  const filteredArticles = [];
+  for (const index of randomIndices) {
+    const article = data.articles[index];
+    if (article.urlToImage) {
+      filteredArticles.push(article);
+    }
+  }
+
+  articles.value = filteredArticles;
+});
+
+function getRandomIndices(count, max) {
+  const indices = [];
+  while (indices.length < max) {
+    const randomIndex = Math.floor(Math.random() * count);
+    if (!indices.includes(randomIndex)) {
+      indices.push(randomIndex);
+    }
+  }
+  return indices;
+}
 </script>
 
 <style scoped>

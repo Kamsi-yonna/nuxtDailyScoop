@@ -1,13 +1,13 @@
 <template>
-  <v-col v-for="(product, i) in products" :key="i">
+  <v-col v-for="(article, i) in articles" :key="i">
     <v-card class="flex border-4 sm:border-b-0 border-black">
       <div class="flex-shrink max-w-full w-full p-2">
-        <div class="relative hover-img max-h-80 overflow-hidden">
+        <div class="relative hover-img h-80 overflow-hidden text-blue-100">
           <!--thumbnail-->
           <v-img
-            class="max-w-full w-full mx-auto h-96"
-            :src="product.image"
-            alt="alt title"
+            class="max-w-full w-full mx-auto h-80 hover:opacity-80 hover:blur-sm"
+            :src="article.urlToImage"
+            alt="Image description"
             cover
           />
 
@@ -15,17 +15,20 @@
             class="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover"
           >
             <!--title-->
-            <nuxt-link :to="`/selected/${product.id}`">
-              <v-card-title>{{ product.title }}</v-card-title>
+            <nuxt-link :to="`/selected/${article.id}`">
+              <h2 class="trunc text-3xl font-bold capitalize mb-3">
+                {{ article.title }}
+              </h2>
             </nuxt-link>
-            <v-card-subtitle>
-              {{ product.description }}
-            </v-card-subtitle>
+
+            <p class="trunc font-bold sm:inline-block">
+              {{ article.content }}
+            </p>
             <!-- author and date -->
             <div class="pt-2">
-              <div class="text-gray-100">
+              <div class="">
                 <div class="inline-block h-3 border-l-2 border-red-600"></div>
-                {{ product.category }}
+                {{ article.source.name }}
               </div>
             </div>
           </div>
@@ -36,42 +39,49 @@
 </template>
 
 <script setup>
-// const { product } = defineProps(["product"]);
-const { data: product } = await useFetch(
-  "https://fakestoreapi.com/products?limit=1"
-);
-const products = product._rawValue;
-// console.log(products);
+const apiKey = "099148be22804e849a0c6fe022b7cf5e";
+const url = "https://newsapi.org/v2/everything";
+const query = "top stories";
+const maxArticles = 1;
+
+const articles = ref([]);
+
+onMounted(async () => {
+  const response = await fetch(`${url}?q=${query}&apiKey=${apiKey}`);
+  const data = await response.json();
+  console.log(data);
+
+  const articleCount = data.articles.length;
+  const randomIndices = getRandomIndices(articleCount, maxArticles);
+
+  const filteredArticles = [];
+  for (const index of randomIndices) {
+    const article = data.articles[index];
+    if (article.urlToImage) {
+      filteredArticles.push(article);
+    }
+  }
+
+  articles.value = filteredArticles;
+});
+
+function getRandomIndices(count, max) {
+  const indices = [];
+  while (indices.length < max) {
+    const randomIndex = Math.floor(Math.random() * count);
+    if (!indices.includes(randomIndex)) {
+      indices.push(randomIndex);
+    }
+  }
+  return indices;
+}
 </script>
 
 <style scoped>
-.v-card-title {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: none;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 36px;
-  text-transform: capitalize;
-  display: -webkit-box;
+.trunc {
   -webkit-box-orient: vertical;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  color: #fff;
-  text-overflow: ellipsis;
-}
-.v-card-subtitle {
-  font-family: "Franklin Gothic Light", "Arial Narrow", Arial, sans-serif;
-  color: #fff;
-  white-space: normal;
-  font-weight: 200;
-  font-size: 14px;
-  line-height: 20px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 </style>

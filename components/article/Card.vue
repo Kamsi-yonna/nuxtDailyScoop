@@ -1,7 +1,7 @@
 <!-- ARTICLE CARD -->
 <template>
   <v-row md="2" class="p-4">
-    <v-col v-for="(article, i) in articles" :key="i" lg="4">
+    <v-col v-for="(article, index) in articles" :key="index" lg="4">
       <v-card class="flex border-4 sm:border-b-0 border-black h-96">
         <div class="flex flex-row sm:block text-gray-800">
           <v-img
@@ -12,7 +12,7 @@
             cover
           />
           <div class="py-0 sm:py-1 pl-3 sm:pl-0">
-            <nuxt-link :to="`/selected/${article.id}`">
+            <nuxt-link :to="`${index}`">
               <v-card-title>{{ article.title }}</v-card-title>
             </nuxt-link>
 
@@ -20,8 +20,8 @@
               {{ article.description }}
             </v-card-subtitle>
 
-            <nuxt-link :to="`/selected/${article.id}`">
-              <v-card-actions :to="`/selected/${article.id}`">
+            <nuxt-link :to="`${index}`">
+              <v-card-actions :to="`${index}`">
                 <button class="btn">Read More...</button>
               </v-card-actions>
             </nuxt-link>

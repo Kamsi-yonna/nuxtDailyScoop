@@ -1,5 +1,5 @@
 <template>
-  <v-col v-for="(article, i) in articles" :key="i">
+  <v-col v-for="(article, index) in articles" :key="index">
     <v-card class="flex border-4 sm:border-b-0 border-black">
       <div class="flex-shrink max-w-full w-full p-2">
         <div class="relative hover-img h-80 overflow-hidden text-blue-100">
@@ -15,7 +15,7 @@
             class="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover"
           >
             <!--title-->
-            <nuxt-link :to="`/selected/${article.id}`">
+            <nuxt-link :to="`${index}`">
               <h2 class="trunc text-3xl font-bold capitalize mb-3">
                 {{ article.title }}
               </h2>
@@ -55,10 +55,10 @@ onMounted(async () => {
   const randomIndices = getRandomIndices(articleCount, maxArticles);
 
   const filteredArticles = [];
-  for (const index of randomIndices) {
+  for (const index of articleCount) {
     const article = data.articles[index];
     if (article.urlToImage) {
-      filteredArticles.push(article);
+      articleCount.push(article);
     }
   }
 

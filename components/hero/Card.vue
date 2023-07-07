@@ -1,8 +1,8 @@
 <!-- HERO CARD  -->
 <template>
   <v-card
-    v-for="(article, i) in articles"
-    :key="i"
+    v-for="(article, index) in articles"
+    :key="index"
     class="flex-shrink max-w-full w-full sm:w-1/2"
   >
     <div class="text-blue-100 relative hover-img h-48 p-1 overflow-hidden">
@@ -13,7 +13,7 @@
         cover
       />
       <div class="absolute px-4 pt-7 pb-4 bottom-0 w-full bg-gradient-cover">
-        <nuxt-link :to="`/selected/${article.id}`">
+        <nuxt-link :to="`${index}`">
           <h2 class="trunc text-lg font-bold capitalize leading-tight mb-1">
             {{ article.title }}
           </h2>

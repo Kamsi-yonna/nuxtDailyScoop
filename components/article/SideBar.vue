@@ -1,11 +1,11 @@
 <template>
   <ul class="post-number">
     <li
-      v-for="(article, i) in articles"
-      :key="i"
+      v-for="(article, index) in articles"
+      :key="index"
       class="flex border-b border-gray-100 hover:bg-gray-50 p-2"
     >
-      <nuxt-link :to="`/selected/${article.id}`">
+      <nuxt-link :to="`${index}`">
         <v-card-title>
           <span class="counter"></span>{{ article.title }}
         </v-card-title>

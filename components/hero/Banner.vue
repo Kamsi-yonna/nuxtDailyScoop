@@ -1,8 +1,8 @@
 <!-- HERO BANNER  -->
 <template>
   <v-card
-    v-for="(article, i) in articles"
-    :key="i"
+    v-for="(article, index) in articles"
+    :key="index"
     class="flex-shrink max-w-full w-full lg:w-1/2 pr-2"
   >
     <div class="text-blue-100 relative hover-img max-h-96 overflow-hidden">
@@ -13,7 +13,7 @@
         cover
       />
       <div class="absolute px-5 pt-8 pb-5 bottom-0 w-full bg-gradient-cover">
-        <nuxt-link :to="`/selected/${article.id}`">
+        <nuxt-link :to="`${index}`">
           <h2 class="trunc text-3xl font-bold capitalize mb-3">
             {{ article.title }}
           </h2>
@@ -40,6 +40,7 @@ const query = "top stories";
 const maxArticles = 1;
 
 const articles = ref([]);
+const router = useRouter();
 
 onMounted(async () => {
   const response = await fetch(`${url}?q=${query}&apiKey=${apiKey}`);
@@ -69,6 +70,9 @@ function getRandomIndices(count, max) {
     }
   }
   return indices;
+}
+function navigateToSelectedArticle(id) {
+  router.push(`${id}`);
 }
 </script>
 
